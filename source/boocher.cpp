@@ -105,19 +105,6 @@ class db
 
 };
 
-
-bool run(char ** argc)
-{
-    auto mg = db(std::string(argc[2]), std::string(argc[3]));
-    //std::string query = argc[4];
-    mg.run("MATCH (n) RETURN n;");
-    
-    std::cout << "Rows: " << mg.rows << std::endl;
-
-    return true;
-}
-
-
 /** Initialise the database.
  */
 bool init(char ** argc)
@@ -241,10 +228,6 @@ int main(int argv, char ** argc)
     else if(arg_one == "get-all")
     {
         return getall(argc);
-    }
-    else if(arg_one == "run")
-    {
-        return run(argc);
     }
 
     std::cout << "Unknown Options";
